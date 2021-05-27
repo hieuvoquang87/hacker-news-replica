@@ -4,6 +4,6 @@ import Widget from '.';
 
 test('renders learn react link', () => {
   render(<Widget />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByText(/Main/i);
   expect(linkElement).toBeInTheDocument();
 });

@@ -2,6 +2,7 @@ export interface Item {
   id: number
   type: string
   by: string
+  kids: number[]
 }
 
 export interface Story extends Item {

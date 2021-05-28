@@ -17,7 +17,7 @@ export default (): MainHook => {
 
   useEffect(() => {
     getNewStoryIds().then((storyIds) => {
-      const loadingIds = storyIds.slice(0, ITEMS_PER_PAGE)
+      const loadingIds = storyIds ? storyIds.slice(0, ITEMS_PER_PAGE) : [];
       getNewStories(loadingIds).then((stories) => {
         setNewStoryIds(storyIds)
         setNewStories(stories)

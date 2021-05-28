@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../components/Page';
 import Container from '../components/Container';
-import Story from '../components/Story';
+import Story from './Story';
 // import InfiniteScroll from 'react-infinite-scroll-component';
 import InfiniteScroller from '../components/InfiniteScroller';
 import useMain from '../hooks/useMain';

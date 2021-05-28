@@ -7,6 +7,7 @@ const StyledStory = styled.div`
   display: flex;
   padding: 20px;
   height: 100px;
+  margin: 20px 0;
 `;
 
 type StoryProps = {

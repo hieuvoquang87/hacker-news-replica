@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { Story } from '../types';
 
 import useStory from '../hooks/useStory';
+import useBookmark from '../hooks/useBookmark';
 
 import Comment from './Comment';
+import Bookmark from '../components/Bookmark';
 
 type StoryProps = {
   item: Story;
@@ -33,21 +35,32 @@ const CommentList = styled.div`
   padding-top: 20px;
 `;
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export default ({ item }: StoryProps): JSX.Element => {
   const { comments, commentIds, loadComment } = useStory(item);
-
+  const { hasBookmarked, bookmarkItem, removeBookmark } = useBookmark(item);
   return (
-    <StyledStory>
+    <StyledStory key={item.id}>
       <Title>{item.title}</Title>
+      <Bookmark
+        hasBookmarked={hasBookmarked}
+        bookmarkItem={bookmarkItem}
+        removeBookmark={removeBookmark}
+      />
       <CommentSummary
         style={{ cursor: commentIds.length ? 'pointer' : '' }}
         onClick={loadComment}
       >
         Comments: {commentIds.length}
       </CommentSummary>
+
       <CommentList>
         {comments.map((comment) => (
-          <Comment item={comment} />
+          <Comment key={comment.id} item={comment} />
         ))}
       </CommentList>
     </StyledStory>

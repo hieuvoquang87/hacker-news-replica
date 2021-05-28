@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Story, Comment } from '../types';
-import { getComments } from '../services/hnService'
+import { getComments } from '../services/hnService';
 
 const useStory = (story: Story) => {
   const commentIds = story?.kids || []  
@@ -11,6 +11,8 @@ const useStory = (story: Story) => {
       setComments(data)
     })
   }, [story, commentIds]) 
+
+  
 
   return {
     commentIds,

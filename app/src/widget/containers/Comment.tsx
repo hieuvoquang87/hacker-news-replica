@@ -27,7 +27,7 @@ const CommentList = styled.div`
 const CommentComponent = ({ item }: CommentProps) => {
   const { commentIds, comments, loadComment } = useComment(item);
   return (
-    <StyledComment>
+    <StyledComment key={item.id}>
       <div dangerouslySetInnerHTML={{ __html: item.text }} />
       <CommentSummary
         style={{ cursor: commentIds.length ? 'pointer' : '' }}
@@ -37,7 +37,7 @@ const CommentComponent = ({ item }: CommentProps) => {
       </CommentSummary>
       <CommentList>
         {comments.map((comment) => (
-          <CommentComponent item={comment} />
+          <CommentComponent key={comment.id} item={comment} />
         ))}
       </CommentList>
     </StyledComment>

@@ -1,16 +1,16 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Comment } from '../types';
 import { getComments } from '../services/hnService'
 
 const useComment = (comment: Comment) => {
-  const commentIds = comment?.kids || []  
+  const commentIds = useMemo(() => comment?.kids || [], [comment])  
   const [comments, setComments] = useState<Comment[]>([]);
 
   const loadComment = useCallback(() => {
     getComments(commentIds).then((data) => {
       setComments(data)
     })
-  }, [Comment, commentIds]) 
+  }, [commentIds]) 
 
   return {
     commentIds,

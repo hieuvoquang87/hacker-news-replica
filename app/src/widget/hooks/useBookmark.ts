@@ -12,7 +12,7 @@ const useBookmark = (item: Item) => {
     const newBookmarks = [...bookmarks, item.id];
     saveBookmarkList(newBookmarks)
     setBookmarks(newBookmarks)
-  }, [bookmarks])
+  }, [bookmarks, item.id, setBookmarks])
 
   const removeBookmark = useCallback(() => {
     const bookmarkedItemIdx = bookmarks.indexOf(item.id);
@@ -22,7 +22,7 @@ const useBookmark = (item: Item) => {
       saveBookmarkList(newBookmarks);
       setBookmarks(newBookmarks);
     }
-  }, [bookmarks])
+  }, [bookmarks, item.id, setBookmarks])
 
   return {
     hasBookmarked,

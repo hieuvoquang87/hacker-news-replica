@@ -6,12 +6,7 @@ const StyledPage = styled.div`
   height: 100%;
   max-width: 1000px;
   margin: auto;
+  width: 100%;
 `;
 
-type PageProps = {
-  children: JSX.Element | JSX.Element[];
-};
-
-export default ({ children }: PageProps): JSX.Element => {
-  return <StyledPage>{children}</StyledPage>;
-};
+export default StyledPage;

@@ -35,12 +35,7 @@ const CommentList = styled.div`
   padding-top: 20px;
 `;
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export default ({ item }: StoryProps): JSX.Element => {
+const StoryContainer = ({ item }: StoryProps): JSX.Element => {
   const { comments, commentIds, loadComment } = useStory(item);
   const { hasBookmarked, bookmarkItem, removeBookmark } = useBookmark(item);
   return (
@@ -66,3 +61,5 @@ export default ({ item }: StoryProps): JSX.Element => {
     </StyledStory>
   );
 };
+
+export default StoryContainer;

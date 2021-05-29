@@ -24,7 +24,7 @@ const CommentList = styled.div`
   padding-top: 20px;
 `;
 
-const CommentComponent = ({ item }: CommentProps) => {
+const CommentContainer = ({ item }: CommentProps) => {
   const { commentIds, comments, loadComment } = useComment(item);
   return (
     <StyledComment key={item.id}>
@@ -37,11 +37,11 @@ const CommentComponent = ({ item }: CommentProps) => {
       </CommentSummary>
       <CommentList>
         {comments.map((comment) => (
-          <CommentComponent key={comment.id} item={comment} />
+          <CommentContainer key={comment.id} item={comment} />
         ))}
       </CommentList>
     </StyledComment>
   );
 };
 
-export default CommentComponent;
+export default CommentContainer;
